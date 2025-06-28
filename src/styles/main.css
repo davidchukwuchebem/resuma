@@ -1,0 +1,169 @@
+
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #fcfcfc;
+  color: #333;
+}
+
+.header {
+  padding: 1rem 2rem;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.logo-box {
+  display: flex;
+  align-items: center;
+}
+
+.logo-icon {
+  height: 30px;
+  margin-right: 8px;
+}
+
+.logo-text {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #FFA500;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #eee;
+}
+
+
+
+.logo {
+  height: 30px;
+}
+
+.profile {
+  position: relative;
+  cursor: pointer;
+}
+
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ccc;
+}
+
+.dropdown {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  z-index: 1000;
+  min-width: 140px;
+}
+
+.dropdown a {
+  display: block;
+  padding: 0.4rem 0;
+  color: #333;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.dropdown a:hover {
+  background-color: #f0f0f0;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.resume-grid {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: flex-center;
+  align-items: center;
+}
+
+.resume-card {
+  border-radius: 8px;
+  padding: 0.5rem;
+  text-align: center;
+  width: 140px;
+  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08); */
+  position: relative;
+}
+
+.resume-img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.resume-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.3rem 0.2rem;
+}
+
+.resume-title {
+  font-size: 0.9rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 100px;
+  text-align: left;
+}
+
+.more-options {
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* Create card */
+.new-resume {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border: 3px dashed #FFA500;
+  border-radius: 12px;
+  color: #555;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  width: 90%;
+  height: 160px; /* Match resume-img height */
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+
+
+.plus {
+  font-size: 2.5rem;
+  color: #FFA500;
+  margin-bottom: 0.3rem;
+  line-height: 1;
+}
