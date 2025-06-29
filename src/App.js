@@ -1,14 +1,18 @@
 import React from "react";
-import Header from "./components/Header";
-import ResumeGrid from "./components/ResumeGrid";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";           
 import "./styles/main.css";
+import NewResume from "./pages/NewResume";
 
 function App() {
   return (
-    <div>
-      <Header />
-      <ResumeGrid />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/new-resume" element={<NewResume />} />
+        {/* Add more routes as needed */}
+      </Routes>
+    </Router>
   );
 }
 

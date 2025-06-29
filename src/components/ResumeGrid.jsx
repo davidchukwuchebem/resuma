@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles/main.css";
 import preview from "../assets/resume-preview.png"; // your resume preview image
+import { Link } from "react-router-dom";
 
 const resumes = [
   { id: 1, title: "Resume" },
@@ -9,6 +10,7 @@ const resumes = [
   { id: 4, title: "Esther We..." },
   { id: 5, title: "DAVID" },
 ];
+
 const templates = [
   { id: 1, title: "Resume" },
   { id: 2, title: "Dextrus" },
@@ -24,9 +26,11 @@ const ResumeGrid = () => {
       <h2 className="section-title">Choose Template</h2>
       <div className="resume-grid">
       <div className="resume-card">
-  <div className="new-resume">
+    <Link to="/new-resume" style={{ textDecoration: 'none' }}>
+      <div className="new-resume">
     <div className="plus">+</div>
   </div>
+  </Link>
   {/* <div className="resume-footer">
     <p className="resume-title">Create New</p>
     <span className="more-options" style={{ visibility: 'hidden' }}>⋮</span>

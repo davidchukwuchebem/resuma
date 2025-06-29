@@ -1,9 +1,13 @@
+import Header from "../components/Header";
+import ResumeGrid from "../components/ResumeGrid";
+
+
 const Home = () => {
   return (
-    <main>
-      <h2>Welcome to Resuma</h2>
-      <p>Create a beautiful resume in minutes — for free.</p>
-    </main>
+    <>
+    <Header />
+    <ResumeGrid />
+    </>
   );
 };
 
