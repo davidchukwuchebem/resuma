@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import './icons/fontawesome'; // Adjust path as needed
 import Home from "./pages/Home";           
 import "./styles/main.css";
 import NewResume from "./pages/NewResume";
