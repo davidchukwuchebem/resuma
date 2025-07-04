@@ -1,37 +1,50 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faPlus, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 const Certification = ({ data, setData, goToNextStep, goBack }) => {
-  const [experiences, setExperiences] = useState(data.experiences || [
-    {
-      jobTitle: "",
-      companyName: "",
-      location: "",
-      startDate: "",
-      endDate: "",
-      description: ""
-    }
-  ]);
+  const [certifications, setCertifications] = useState(
+    Array.isArray(data.certifications) && data.certifications.length > 0
+      ? data.certifications
+      : [
+          {
+            Certificate: "",
+            companyName: "",
+            issuingOrganization: "",
+            issueDate: "",
+            endDate: "",
+            description: ""
+          }
+        ]
+  );
+
+  useEffect(() => {
+    setData((prev) => ({ ...prev, certifications }));
+  }, [certifications, setData]);
 
   const handleChange = (index, field, value) => {
-    const updated = [...experiences];
+    const updated = [...certifications];
     updated[index][field] = value;
-    setExperiences(updated);
-    setData((prev) => ({ ...prev, experiences: updated }));
+    setCertifications(updated);
   };
 
-  const addExperience = () => {
-    const updated = [...experiences, {
-      jobTitle: "",
-      companyName: "",
-      location: "",
-      startDate: "",
-      endDate: "",
-      description: ""
-    }];
-    setExperiences(updated);
-    setData((prev) => ({ ...prev, experiences: updated }));
+  const addCertification = () => {
+    setCertifications((prev) => [
+      ...prev,
+      {
+        Certificate: "",
+        companyName: "",
+        issuingOrganization: "",
+        issueDate: "",
+        endDate: "",
+        description: ""
+      }
+    ]);
+  };
+
+  const removeCertification = (index) => {
+    const updated = certifications.filter((_, i) => i !== index);
+    setCertifications(updated);
   };
 
   return (
@@ -42,21 +55,23 @@ const Certification = ({ data, setData, goToNextStep, goBack }) => {
       </div>
 
       <div className="section-header link-header">
-        <h2>Work Experience</h2>
-        <button type="button" className="add-link-btn" onClick={addExperience}>
+        <h2>Certifications</h2>
+        <button type="button" className="add-link-btn" onClick={addCertification}>
           <FontAwesomeIcon icon={faPlus} />
         </button>
       </div>
 
-      {experiences.map((exp, index) => (
+      {certifications.map((cert, index) => (
         <div key={index} className="experience-section">
+          <h3>Certificate {index + 1}</h3>
+
           <div className="form-group">
-            <label>Job Title</label>
+            <label>Certificate</label>
             <input
               type="text"
-              placeholder="Job Title"
-              value={exp.jobTitle}
-              onChange={(e) => handleChange(index, "jobTitle", e.target.value)}
+              placeholder="Certificate"
+              value={cert.Certificate}
+              onChange={(e) => handleChange(index, "Certificate", e.target.value)}
             />
           </div>
 
@@ -65,60 +80,74 @@ const Certification = ({ data, setData, goToNextStep, goBack }) => {
             <input
               type="text"
               placeholder="Company Name"
-              value={exp.companyName}
+              value={cert.companyName}
               onChange={(e) => handleChange(index, "companyName", e.target.value)}
             />
           </div>
 
           <div className="form-group">
-            <label>Location</label>
+            <label>Issuing Organization</label>
             <input
               type="text"
-              placeholder="Location"
-              value={exp.location}
-              onChange={(e) => handleChange(index, "location", e.target.value)}
+              placeholder="Issuing Organization"
+              value={cert.issuingOrganization}
+              onChange={(e) => handleChange(index, "issuingOrganization", e.target.value)}
             />
           </div>
 
           <div className="form-grid">
             <div className="form-group">
-              <label>Start Date</label>
+              <label>Issue Date</label>
               <input
                 type="text"
-                placeholder="Start date"
-                value={exp.startDate}
-                onChange={(e) => handleChange(index, "startDate", e.target.value)}
+                placeholder="Issue Date"
+                value={cert.issueDate}
+                onChange={(e) => handleChange(index, "issueDate", e.target.value)}
               />
             </div>
             <div className="form-group">
               <label>End Date</label>
               <input
                 type="text"
-                placeholder="End date"
-                value={exp.endDate}
+                placeholder="End Date (optional)"
+                value={cert.endDate}
                 onChange={(e) => handleChange(index, "endDate", e.target.value)}
               />
             </div>
           </div>
 
           <div className="form-group">
-            <label>Job Description</label>
+            <label>Description</label>
             <textarea
-              placeholder="Job Description"
-              value={exp.description}
+              placeholder="Description"
               rows={5}
+              value={cert.description}
               onChange={(e) => handleChange(index, "description", e.target.value)}
             />
           </div>
+
+          {certifications.length > 1 && (
+            <div className="delete-btn-container">
+              <button
+                type="button"
+                className="delete-btn"
+                onClick={() => removeCertification(index)}
+              >
+                <FontAwesomeIcon icon={faTrash} /> Delete
+              </button>
+            </div>
+          )}
+
+          <hr />
         </div>
       ))}
 
-      <div className="button-row">
-        <button className="next-btn" onClick={goToNextStep}>Next</button>
+     <div className="button-group">
         <button className="back-btn" onClick={goBack}>Back</button>
+        <button className="next-btn" onClick={goToNextStep}>Next</button>
       </div>
     </div>
   );
 };
 
-export default WorkExperience;
+export default Certification;

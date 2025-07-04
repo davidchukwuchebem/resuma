@@ -4,9 +4,17 @@ import Summary from "./ResumeForm/Summary";
 import Skill from "./ResumeForm/Skill";
 import Education from "./ResumeForm/Education";
 import Work from "./ResumeForm/Work";
+import Certification from "./ResumeForm/Certification";
+import Language from "./ResumeForm/Language";
+import Project from "./ResumeForm/Project";
+import Volunteer from "./ResumeForm/Volunteer";
+import Hobby from "./ResumeForm/Hobby";
+import ProgressBar from "../components/ProgressBar";
 
-
-const steps = ["personal", "summary", "skill", "education", "work"];
+const steps = [
+  "personal", "summary", "skill", "education", "work",
+  "certification", "language", "project", "volunteer", "hobby"
+];
 
 export default function SidePanel({ data, setData }) {
   const [stepIndex, setStepIndex] = useState(0);
@@ -24,9 +32,12 @@ export default function SidePanel({ data, setData }) {
   };
 
   const currentStep = steps[stepIndex];
+  const progressPercentage = Math.round(((stepIndex + 1) / steps.length) * 100);
 
   return (
     <div className="sidebar">
+      <ProgressBar percentage={progressPercentage} />
+
       {currentStep === "personal" && (
         <Personal data={data} setData={setData} goToNextStep={goToNextStep} />
       )}
@@ -42,7 +53,21 @@ export default function SidePanel({ data, setData }) {
       {currentStep === "work" && (
         <Work data={data} setData={setData} goBack={goToPreviousStep} goToNextStep={goToNextStep} />
       )}
-
+      {currentStep === "certification" && (
+        <Certification data={data} setData={setData} goBack={goToPreviousStep} goToNextStep={goToNextStep} />
+      )}
+      {currentStep === "language" && (
+        <Language data={data} setData={setData} goBack={goToPreviousStep} goToNextStep={goToNextStep} />
+      )}
+      {currentStep === "project" && (
+        <Project data={data} setData={setData} goBack={goToPreviousStep} goToNextStep={goToNextStep} />
+      )}
+      {currentStep === "volunteer" && (
+        <Volunteer data={data} setData={setData} goBack={goToPreviousStep} goToNextStep={goToNextStep} />
+      )}
+      {currentStep === "hobby" && (
+        <Hobby data={data} setData={setData} goBack={goToPreviousStep} goToNextStep={goToNextStep} />
+      )}
     </div>
   );
 }

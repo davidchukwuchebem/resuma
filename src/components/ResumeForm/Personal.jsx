@@ -106,9 +106,9 @@ const Personal = ({ data, setData, goToNextStep }) => {
         ))}
       </div>
 
-     <button className="next-btn" onClick={goToNextStep}>
-        Next
-      </button>
+    <div className="button-group">
+        <button className="next-btn" onClick={goToNextStep}>Next</button>
+      </div>
     </div>
   );
 };

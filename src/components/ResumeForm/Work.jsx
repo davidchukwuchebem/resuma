@@ -1,18 +1,22 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faPlus, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 const WorkExperience = ({ data, setData, goToNextStep, goBack }) => {
-  const [experiences, setExperiences] = useState(data.experiences || [
-    {
-      jobTitle: "",
-      companyName: "",
-      location: "",
-      startDate: "",
-      endDate: "",
-      description: ""
-    }
-  ]);
+  const [experiences, setExperiences] = useState(
+    Array.isArray(data.experiences) && data.experiences.length > 0
+      ? data.experiences
+      : [
+          {
+            jobTitle: "",
+            companyName: "",
+            location: "",
+            startDate: "",
+            endDate: "",
+            description: ""
+          }
+        ]
+  );
 
   const handleChange = (index, field, value) => {
     const updated = [...experiences];
@@ -22,21 +26,29 @@ const WorkExperience = ({ data, setData, goToNextStep, goBack }) => {
   };
 
   const addExperience = () => {
-    const updated = [...experiences, {
-      jobTitle: "",
-      companyName: "",
-      location: "",
-      startDate: "",
-      endDate: "",
-      description: ""
-    }];
+    const updated = [
+      ...experiences,
+      {
+        jobTitle: "",
+        companyName: "",
+        location: "",
+        startDate: "",
+        endDate: "",
+        description: ""
+      }
+    ];
+    setExperiences(updated);
+    setData((prev) => ({ ...prev, experiences: updated }));
+  };
+
+  const removeExperience = (index) => {
+    const updated = experiences.filter((_, i) => i !== index);
     setExperiences(updated);
     setData((prev) => ({ ...prev, experiences: updated }));
   };
 
   return (
     <div className="form-container">
-      {/* Progress Bar */}
       <div className="progress-bar">
         <div className="progress" style={{ width: "50%" }}></div>
       </div>
@@ -50,6 +62,8 @@ const WorkExperience = ({ data, setData, goToNextStep, goBack }) => {
 
       {experiences.map((exp, index) => (
         <div key={index} className="experience-section">
+          <h3>Experience {index + 1}</h3>
+
           <div className="form-group">
             <label>Job Title</label>
             <input
@@ -110,12 +124,28 @@ const WorkExperience = ({ data, setData, goToNextStep, goBack }) => {
               onChange={(e) => handleChange(index, "description", e.target.value)}
             />
           </div>
+
+          {/* Delete Experience Button */}
+          {experiences.length > 1 && (
+            <div className="delete-btn-container">
+              <button
+                type="button"
+                className="delete-btn"
+                onClick={() => removeExperience(index)}
+                title="Delete Experience"
+              >
+                <FontAwesomeIcon icon={faTrash} /> Delete Experience
+              </button>
+            </div>
+          )}
+
+          <hr />
         </div>
       ))}
 
-      <div className="button-row">
-      <button className="back-btn"  onClick={goBack}>Back</button>
-      <button className="next-btn"  onClick={goToNextStep}>Next</button>
+     <div className="button-group">
+        <button className="back-btn" onClick={goBack}>Back</button>
+        <button className="next-btn" onClick={goToNextStep}>Next</button>
       </div>
     </div>
   );

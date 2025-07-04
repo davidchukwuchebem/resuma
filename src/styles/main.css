@@ -518,3 +518,30 @@ input, textarea {
   justify-content: flex-end;
   margin-top: 1rem;
 }
+
+.proficiency select {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 6px;
+  border: none;
+  background: #F5F5F5;
+  font-size: 1rem;
+}
+
+.progress-bar-container {
+  width: 100%;
+  background: #eee;
+  height: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: #FFA500;
+  transition: width 0.3s ease;
+  color: white;
+  text-align: center;
+  font-size: 10px;
+}
