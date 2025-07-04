@@ -16,7 +16,7 @@ const steps = [
   "certification", "language", "project", "volunteer", "hobby"
 ];
 
-export default function SidePanel({ data, setData }) {
+export default function SidePanel({ data, setData, progressPercentage, onDownloadPDF }) {
   const [stepIndex, setStepIndex] = useState(0);
 
   const goToNextStep = () => {
@@ -32,7 +32,6 @@ export default function SidePanel({ data, setData }) {
   };
 
   const currentStep = steps[stepIndex];
-  const progressPercentage = Math.round(((stepIndex + 1) / steps.length) * 100);
 
   return (
     <div className="sidebar">
@@ -66,7 +65,13 @@ export default function SidePanel({ data, setData }) {
         <Volunteer data={data} setData={setData} goBack={goToPreviousStep} goToNextStep={goToNextStep} />
       )}
       {currentStep === "hobby" && (
-        <Hobby data={data} setData={setData} goBack={goToPreviousStep} goToNextStep={goToNextStep} />
+        <Hobby
+          data={data}
+          setData={setData}
+          goBack={goToPreviousStep}
+          goToNextStep={goToNextStep}
+          onDownloadPDF={onDownloadPDF} // ✅ pass the function
+        />
       )}
     </div>
   );

@@ -2,16 +2,11 @@ import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faTrash } from "@fortawesome/free-solid-svg-icons";
 
-const Hobby = ({ data, setData, goToNextStep, goBack }) => {
+const Hobby = ({ data, setData, goToNextStep, goBack, onDownloadPDF }) => {
   const [hobbies, setHobbies] = useState(
     Array.isArray(data.hobbies) && data.hobbies.length > 0
       ? data.hobbies
-      : [
-          {
-            hobby: "",
-            proficiency: ""
-          }
-        ]
+      : [{ hobby: "", proficiency: "" }]
   );
 
   useEffect(() => {
@@ -31,6 +26,19 @@ const Hobby = ({ data, setData, goToNextStep, goBack }) => {
   const removeHobby = (index) => {
     const updated = hobbies.filter((_, i) => i !== index);
     setHobbies(updated);
+  };
+
+  const handleExportChange = (e) => {
+    const format = e.target.value;
+    if (format === "pdf") {
+      if (typeof onDownloadPDF === "function") {
+        onDownloadPDF(); // 🚀 call the PDF generator passed down from NewResume.jsx
+      } else {
+        console.warn("onDownloadPDF not available");
+      }
+    } else if (format === "png") {
+      alert("PNG export not implemented yet.");
+    }
   };
 
   return (
@@ -75,14 +83,9 @@ const Hobby = ({ data, setData, goToNextStep, goBack }) => {
             </div>
           </div>
 
-          {/* Remove button */}
           {hobbies.length > 1 && (
             <div className="delete-btn-container">
-              <button
-                type="button"
-                className="delete-btn"
-                onClick={() => removeHobby(index)}
-              >
+              <button type="button" className="delete-btn" onClick={() => removeHobby(index)}>
                 <FontAwesomeIcon icon={faTrash} /> Delete
               </button>
             </div>
@@ -94,7 +97,13 @@ const Hobby = ({ data, setData, goToNextStep, goBack }) => {
 
       <div className="button-row">
         <button className="back-btn" onClick={goBack}>Back</button>
-        <button className="next-btn" onClick={goToNextStep}>Next</button>
+
+        {/* ✅ Export Options */}
+        <select className="next-btn export" onChange={handleExportChange} defaultValue="">
+          <option value="" disabled>Export As</option>
+          <option value="pdf">PDF</option>
+          <option value="png">PNG</option>
+        </select>
       </div>
     </div>
   );

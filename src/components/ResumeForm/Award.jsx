@@ -204,7 +204,7 @@ const Award = ({ data, setData, goToNextStep, goBack }) => {
         </div>
       ))}
 
-      <div className="button-row">
+      <div className="button-group">
         <button className="back-btn" onClick={goBack}>Back</button>
         <button className="next-btn" onClick={goToNextStep}>Next</button>
       </div>
