@@ -6,7 +6,9 @@ body {
   color: #333;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   margin-bottom: 0.5rem;
 }
 
@@ -33,7 +35,7 @@ h1, h2, h3 {
 .logo-text {
   font-size: 1.2rem;
   font-weight: bold;
-  color: #FFA500;
+  color: #ffa500;
 }
 
 .logo {
@@ -116,8 +118,8 @@ h1, h2, h3 {
 
 .resume-img {
   width: 100%;
-  height: 250px;
-  object-fit: cover;
+  height: 200px;
+  object-fit: fill;
   border-radius: 4px;
 }
 
@@ -149,7 +151,7 @@ h1, h2, h3 {
   justify-content: center;
   align-items: center;
   background-color: white;
-  border: 3px dashed #FFA500;
+  border: 3px dashed #ffa500;
   border-radius: 12px;
   color: #555;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
@@ -161,7 +163,7 @@ h1, h2, h3 {
 
 .plus {
   font-size: 2.5rem;
-  color: #FFA500;
+  color: #ffa500;
   margin-bottom: 0.3rem;
   line-height: 1;
 }
@@ -218,7 +220,7 @@ textarea {
   border-radius: 6px;
   border: 1px solid #ccc;
   font-size: 1rem;
-  background: #F5F5F5;
+  background: #f5f5f5;
   border: none;
 }
 
@@ -239,7 +241,6 @@ textarea::placeholder {
   margin: 0 auto; /* Center horizontally */
 }
 
-
 .preview-wrapper {
   width: 100%;
   display: flex;
@@ -248,14 +249,12 @@ textarea::placeholder {
   min-height: 100vh;
 }
 
-
-
 .image-upload {
   width: 100px;
   height: 100px;
   border-radius: 50%;
   background: #f5f5f5;
-  border: 2px dashed #FFA500;
+  border: 2px dashed #ffa500;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -278,8 +277,6 @@ textarea::placeholder {
   margin-bottom: 1rem;
 }
 
-
-
 .resume-preview.dark-theme {
   background: #121212;
   color: #f2f2f2;
@@ -291,7 +288,7 @@ textarea::placeholder {
   /* border-radius: 8px; */
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
   gap: 2rem;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: "Segoe UI", sans-serif;
 }
 
 .left-section {
@@ -313,13 +310,6 @@ h1 {
   font-weight: 600;
 }
 
-h3, h4 {
-  margin-top: 1.5rem;
-  color: #ffa500;
-  font-size: 1rem;
-  text-transform: uppercase;
-}
-
 .job-title {
   font-weight: bold;
   margin: 0.5rem 0;
@@ -330,13 +320,15 @@ h3, h4 {
   line-height: 1.5;
 }
 
-.skills, .tools {
+.skills,
+.tools {
   list-style: none;
   padding: 0;
   margin: 0.5rem 0;
 }
 
-.skills li, .tools li {
+.skills li,
+.tools li {
   background: #1e1e1e;
   color: #ddd;
   padding: 4px 8px;
@@ -353,9 +345,9 @@ h3, h4 {
   min-height: 100vh;
 }
 
-
-.next-btn, .back-btn {
-  background-color: #FFA500;
+.next-btn,
+.back-btn {
+  background-color: #ffa500;
   color: white;
   padding: 0.5rem 2rem;
   border: none;
@@ -365,8 +357,8 @@ h3, h4 {
   transition: background-color 0.3s ease;
 }
 
-.back-btn{
-  background-color: #F5F5F5;
+.back-btn {
+  background-color: #f5f5f5;
   color: black;
   margin-right: 10px;
 }
@@ -415,17 +407,20 @@ h3, h4 {
   align-items: center;
 }
 
-.add-link-btn, .add-skill-btn, .delete-btn{
-  background-color: #F5F5F5;
+.add-link-btn,
+.add-skill-btn,
+.delete-btn {
+  background-color: #f5f5f5;
   border: none;
   cursor: pointer;
   font-size: 1rem;
-  color: #FFA500;
+  color: #ffa500;
   padding: 0.5rem;
   border-radius: 5px;
 }
 
-input, textarea {
+input,
+textarea {
   width: 100%;
   padding: 1rem;
   border-radius: 6px;
@@ -433,7 +428,6 @@ input, textarea {
   font-size: 1rem;
   background: #f9f9f9;
 }
-
 
 /* Floating label container */
 .floating-label-group {
@@ -469,7 +463,7 @@ input, textarea {
   top: -0.6rem;
   left: 0.6rem;
   font-size: 0.75rem;
-  color: #FFA500;
+  color: #ffa500;
 }
 
 /* Responsive Grid */
@@ -489,17 +483,13 @@ input, textarea {
   font-size: 0.9rem;
 }
 
-
-.remove-skill-btn{
+.remove-skill-btn {
   margin-bottom: 10px;
 }
 
-
-
-.experience-section{
+.experience-section {
   margin-bottom: 20px;
 }
-
 
 .progress-bar {
   height: 6px;
@@ -511,7 +501,7 @@ input, textarea {
 
 .progress {
   height: 100%;
-  background-color: #FFA500;
+  background-color: #ffa500;
   transition: width 0.3s ease;
 }
 .button-group {
@@ -525,7 +515,7 @@ input, textarea {
   padding: 0.75rem;
   border-radius: 6px;
   border: none;
-  background: #F5F5F5;
+  background: #f5f5f5;
   font-size: 1rem;
 }
 
@@ -539,8 +529,8 @@ input, textarea {
 }
 
 .edit-btn {
-  background-color: #B4ACFF;
-  color: #5C4BFA;
+  background-color: #b4acff;
+  color: #5c4bfa;
   padding: 0.5rem 1.5rem;
   border: none;
   border-radius: 6px;
@@ -550,11 +540,39 @@ input, textarea {
 }
 .progress-bar {
   height: 100%;
-  background-color: #FFA500;
+  background-color: #ffa500;
   transition: width 0.3s ease;
   color: white;
   text-align: center;
   font-size: 10px;
+}
+
+.template-container {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+}
+
+.sidebar-btn-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+}
+.sidebar-btn {
+  background: none;
+  border: none;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.sidebar-btn svg {
+  margin-right: 10px;
+}
+.sidebar-btn.active {
+  box-shadow: 0px 4px 13px -4px #00000057 inset;
+  background: #f5f5f5 !important;
 }
 
 @media print {
@@ -562,7 +580,8 @@ input, textarea {
     visibility: hidden;
   }
 
-  .app, .app * {
+  .app,
+  .app * {
     visibility: visible;
   }
 

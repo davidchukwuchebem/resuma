@@ -21,52 +21,55 @@ const templates = [
 const ResumeGrid = () => {
   return (
     <>
-    <div className="container">
-      <div>
-      <h2 className="section-title">Choose Template</h2>
-      <div className="resume-grid">
-      <div className="resume-card">
-    <Link to="/new-resume" style={{ textDecoration: 'none' }}>
-      <div className="new-resume">
-    <div className="plus">+</div>
-  </div>
-  </Link>
-  {/* <div className="resume-footer">
+      <div className="container">
+        <div>
+          <h2 className="section-title">Choose Template</h2>
+          <div className="resume-grid">
+            <div className="resume-card">
+              <Link to="/new-resume" style={{ textDecoration: "none" }}>
+                <div className="new-resume">
+                  <div className="plus">+</div>
+                </div>
+              </Link>
+              {/* <div className="resume-footer">
     <p className="resume-title">Create New</p>
     <span className="more-options" style={{ visibility: 'hidden' }}>⋮</span>
   </div> */}
-      </div>
+            </div>
 
-
-        {templates.map((template) => (
-          <div key={template.id} className="resume-card">
-            <img src={preview} alt={template.title} className="resume-img" />
-            {/* <div className="resume-footer">
+            {templates.map((template) => (
+              <div key={template.id} className="resume-card">
+                <img
+                  src={preview}
+                  alt={template.title}
+                  className="resume-img"
+                />
+                {/* <div className="resume-footer">
               <p className="resume-title">{resume.title}</p>
               <span className="more-options">⋮</span>
             </div> */}
+              </div>
+            ))}
           </div>
-        ))}
+          <hr />
+        </div>
       </div>
-      <hr />
-      </div>
-    </div>
-    <div className="container">
-      <div>
-      <h2 className="section-title">My Resumes</h2>
-      <div className="resume-grid">
-        {resumes.map((resume) => (
-          <div key={resume.id} className="resume-card">
-            <img src={preview} alt={resume.title} className="resume-img" />
-            <div className="resume-footer">
-              <p className="resume-title">{resume.title}</p>
-              <span className="more-options">⋮</span>
-            </div>
+      <div className="container">
+        <div>
+          <h2 className="section-title">My Resumes</h2>
+          <div className="resume-grid">
+            {resumes.map((resume) => (
+              <div key={resume.id} className="resume-card">
+                <img src={preview} alt={resume.title} className="resume-img" />
+                <div className="resume-footer">
+                  <p className="resume-title">{resume.title}</p>
+                  <span className="more-options">⋮</span>
+                </div>
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
-      </div>
-    </div>
     </>
   );
 };
