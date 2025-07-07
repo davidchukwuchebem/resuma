@@ -562,11 +562,11 @@ input, textarea {
     visibility: hidden;
   }
 
-  .app, .app * {
+  .resume-preview, .resume-preview * {
     visibility: visible;
   }
 
-  .app {
+  .resume-preview {
     position: absolute;
     left: 0;
     top: 0;
