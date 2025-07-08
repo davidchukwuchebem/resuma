@@ -1,0 +1,115 @@
+/* Base Wrapper */
+.functional-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  padding: 2rem;
+  font-family: "Helvetica Neue", sans-serif;
+  background-color: var(--bg, #ffffff);
+  color: var(--text, #222);
+}
+
+/* Resume Card */
+.functional-resume {
+  width: 800px;
+  background-color: #fff;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+  padding: 2rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+/* Header */
+.functional-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 3px solid var(--primary, #2b6cb0);
+  padding-bottom: 1rem;
+}
+
+.functional-name {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--primary, #2b6cb0);
+}
+
+.functional-role {
+  font-size: 1.1rem;
+  color: var(--secondary, #718096);
+}
+
+/* Section Title */
+.functional-section-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--primary, #2b6cb0);
+  margin-bottom: 0.8rem;
+  border-left: 4px solid var(--primary, #2b6cb0);
+  padding-left: 0.5rem;
+}
+
+/* Summary */
+.functional-summary {
+  font-style: italic;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Skill Lists */
+.functional-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+}
+
+.functional-list li {
+  background: var(--primary, #2b6cb0);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+}
+
+/* Project & Certification Blocks */
+.functional-block {
+  margin-bottom: 1rem;
+}
+
+.functional-block-title {
+  font-weight: 600;
+  color: var(--secondary, #555);
+  margin-bottom: 0.3rem;
+}
+
+.functional-block-description {
+  font-size: 0.92rem;
+  color: #444;
+}
+
+/* Footer */
+.functional-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.9rem;
+  border-top: 1px solid #ddd;
+  padding-top: 1rem;
+  margin-top: 1rem;
+}
+
+.functional-columns {
+  display: flex;
+  gap: 2rem;
+}
+
+.functional-columns .left {
+  flex: 1;
+}
+
+.functional-columns .right {
+  flex: 2;
+}

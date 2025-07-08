@@ -1,4 +1,5 @@
-const TemplatePreview = ({ data }) => {
+
+const Chronological = ({data}) => {
   return (
     <div className="preview-wrapper">
       <div className="resume-preview dark-theme">
@@ -209,4 +210,4 @@ const TemplatePreview = ({ data }) => {
   );
 };
 
-export default TemplatePreview;
+export default Chronological;

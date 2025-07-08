@@ -2,13 +2,16 @@ import { useState } from "react";
 import Templates from "./Templates";
 import Text from "./Text";
 import Layout from "./Layout";
+import { useResumeDataContext } from "../../contexts/ResumeDataProvider"; // Update path if needed
 
 export default function TemplateSidePanel() {
   const [currentTab, setCurrentTab] = useState("templates");
+  const { selectedTemplate, setSelectedTemplate } = useResumeDataContext();
 
   return (
     <div className="sidebar">
-      <div className="sidebar-btn-container">
+      <div className="wrapper">
+             <div className="sidebar-btn-container">
         <button
           className={`sidebar-btn ${currentTab === "templates" && "active"}`}
           onClick={() => setCurrentTab("templates")}
@@ -63,11 +66,17 @@ export default function TemplateSidePanel() {
           </svg>
           Layout
         </button>
-      </div>
+        </div>
 
-      {currentTab === "templates" && <Templates />}
-      {currentTab === "text" && <Text />}
-      {currentTab === "layout" && <Layout />}
+        {currentTab === "templates" && (
+          <Templates
+            selectedTemplate={selectedTemplate}
+            setSelectedTemplate={setSelectedTemplate}
+          />
+        )}
+        {currentTab === "text" && <Text />}
+        {currentTab === "layout" && <Layout />}
+      </div>
     </div>
   );
 }

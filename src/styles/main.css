@@ -182,6 +182,8 @@ h3 {
   padding: 2rem;
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
   overflow-y: auto;
+  display: flex;
+  justify-content: center;
 }
 
 .resume-content {
@@ -557,6 +559,7 @@ textarea {
   align-items: center;
   justify-content: space-between;
   padding: 0 30px;
+  margin-bottom: 30px;
 }
 .sidebar-btn {
   background: none;
@@ -566,6 +569,7 @@ textarea {
   align-items: center;
   border-radius: 5px;
   cursor: pointer;
+  color: black;
 }
 .sidebar-btn svg {
   margin-right: 10px;
@@ -590,3 +594,11 @@ textarea {
     top: 0;
   }
 }
+
+
+.selected-template {
+  border: 2px solid #ffa500;
+  transform: scale(1.03);
+  transition: all 0.2s ease;
+}
+

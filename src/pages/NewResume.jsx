@@ -1,26 +1,62 @@
 // src/pages/NewResume.jsx
 import { useMemo, useRef } from "react";
-import SidePanel from "../components/SidePanel";
-import ResumePreview from "../components/ResumePreview";
+import { Link } from "react-router-dom";
 import html2pdf from "html2pdf.js";
+import SidePanel from "../components/SidePanel";
 import "../styles/main.css";
+
 import { useResumeDataContext } from "../contexts/ResumeDataProvider";
+
+// Import template components
+import Chronological from "../components/ChangeTemplates/templates/Chronological";
+import Modern from "../components/ChangeTemplates/templates/Modern";
+import Combination from "../components/ChangeTemplates/templates/Combination";
+import Functional from "../components/ChangeTemplates/templates/Functional";
+
+// Add additional templates as you implement them
 
 const NewResume = ({ onDownloadPDF }) => {
   const resumeRef = useRef();
+  const { resumeData, setResumeData, selectedTemplate } = useResumeDataContext();
+
+  // Dynamically map template names to components
+  const templateComponents = {
+    Chronological,
+    Modern,
+    Functional,
+    Combination,
+    // Add more templates here
+  };
+
+  // Get selected component (default to Chronological)
+  const SelectedTemplateComponent =
+    templateComponents[selectedTemplate] || Chronological;
+
   const handleExportChange = (e) => {
     const format = e.target.value;
     if (format === "pdf") {
       if (typeof onDownloadPDF === "function") {
-        onDownloadPDF(); // 🚀 call the PDF generator passed down from NewResume.jsx
+        onDownloadPDF();
       } else {
-        console.warn("onDownloadPDF not available");
+        handleDownloadPDF(); // Fallback
       }
     } else if (format === "png") {
       alert("PNG export not implemented yet.");
     }
   };
-  const { resumeData, setResumeData } = useResumeDataContext();
+
+  const handleDownloadPDF = () => {
+    if (!resumeRef.current) return;
+    const element = resumeRef.current;
+    const options = {
+      margin: 0,
+      filename: "resume.pdf",
+      image: { type: "jpeg", quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
+    };
+    html2pdf().set(options).from(element).save();
+  };
 
   const progress = useMemo(() => {
     const sections = [
@@ -53,19 +89,6 @@ const NewResume = ({ onDownloadPDF }) => {
     return Math.floor((filled / sections.length) * 100);
   }, [resumeData]);
 
-  const handleDownloadPDF = () => {
-    if (!resumeRef.current) return;
-    const element = resumeRef.current;
-    const options = {
-      margin: 0,
-      filename: "resume.pdf",
-      image: { type: "jpeg", quality: 0.98 },
-      html2canvas: { scale: 2 },
-      jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
-    };
-    html2pdf().set(options).from(element).save();
-  };
-
   return (
     <div className="edit-resume-container">
       <SidePanel
@@ -76,7 +99,9 @@ const NewResume = ({ onDownloadPDF }) => {
       />
       <div className="resume-content">
         <div className="button-group">
-          <button className="back-btn edit-btn">Edit Template</button>
+          <Link to="/templates" style={{ textDecoration: "none" }}>
+            <button className="back-btn edit-btn">Edit Template</button>
+          </Link>
           <select
             className="next-btn"
             onChange={handleExportChange}
@@ -90,7 +115,7 @@ const NewResume = ({ onDownloadPDF }) => {
           </select>
         </div>
         <div className="app" ref={resumeRef}>
-          <ResumePreview data={resumeData} />
+          <SelectedTemplateComponent data={resumeData} />
         </div>
       </div>
     </div>

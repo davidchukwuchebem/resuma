@@ -1,0 +1,89 @@
+.resume-preview.modern-theme {
+  background: #f9f9f9;
+  color: #333;
+  font-family: 'Helvetica Neue', sans-serif;
+  padding: 2rem;
+  width: 800px;
+  height: 1120px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.header-section {
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.modern-photo {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 1rem;
+}
+
+.header-text h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.modern-role {
+  color: #555;
+  margin: 0.3rem 0;
+  font-weight: 600;
+}
+
+.modern-summary {
+  font-size: 0.95rem;
+  color: #666;
+}
+
+.modern-main {
+  display: flex;
+  gap: 2rem;
+}
+
+.modern-left {
+  flex: 2;
+}
+
+.modern-right {
+  flex: 1;
+  border-left: 2px solid #eee;
+  padding-left: 1rem;
+}
+
+.section {
+  margin-bottom: 1.5rem;
+}
+
+.section h3 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: #222;
+}
+
+.section ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.section ul li {
+  background: #eee;
+  padding: 0.4rem 0.6rem;
+  margin-bottom: 0.3rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+.item h4 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.light {
+  color: #777;
+  font-size: 0.85rem;
+}

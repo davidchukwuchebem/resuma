@@ -1,43 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Character Encoding -->
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
+    <!-- Favicon and App Icon -->
+    <link rel="icon" href="%PUBLIC_URL%/Resuma.png" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/Resuma.png" />
+
+    <!-- Force Desktop View -->
+    <meta name="viewport" content="width=1024" />
+
+    <!-- Theme and Appearance -->
+    <meta name="theme-color" content="#004080" />
+    <meta name="color-scheme" content="light dark" />
+
+    <!-- SEO Meta Tags -->
+    <title>Resuma – Professional Resume Builder</title>
+    <meta name="description" content="Resuma helps you build elegant, job-winning resumes with modern templates. Create, edit, and export your resume in minutes." />
+    <meta name="author" content="Chukwuchebem David" />
+    <meta name="keywords" content="resume builder, CV creator, job application, Resuma, professional resume, modern resume templates, online resume builder, create CV, Resuma Nigeria" />
+
+    <!-- Open Graph Meta (for Facebook, LinkedIn, etc.) -->
+    <meta property="og:title" content="Resuma – Professional Resume Builder" />
+    <meta property="og:description" content="Create beautiful and professional resumes with Resuma. Customize, export, and impress employers." />
+    <meta property="og:image" content="%PUBLIC_URL%/Resuma.png" />
+    <meta property="og:url" content="https://resuma.vercel.app" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card Meta -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Resuma – Build Professional Resumes Fast" />
+    <meta name="twitter:description" content="Fast and modern resume builder to land your dream job. Start for free." />
+    <meta name="twitter:image" content="%PUBLIC_URL%/Resuma.png" />
+
+    <!-- Web Manifest -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://resuma.vercel.app" />
+
+    <!-- Fonts (Optional) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+
+    <!-- Title Fallback -->
+    <noscript><title>Resuma</title></noscript>
   </head>
+
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
   </body>
 </html>

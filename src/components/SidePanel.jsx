@@ -35,7 +35,8 @@ export default function SidePanel({ data, setData, progressPercentage, onDownloa
 
   return (
     <div className="sidebar">
-      <ProgressBar percentage={progressPercentage} />
+    <div className="wrapper">
+        <ProgressBar percentage={progressPercentage} />
 
       {currentStep === "personal" && (
         <Personal data={data} setData={setData} goToNextStep={goToNextStep} />
@@ -73,6 +74,7 @@ export default function SidePanel({ data, setData, progressPercentage, onDownloa
           onDownloadPDF={onDownloadPDF} // ✅ pass the function
         />
       )}
+    </div>
     </div>
   );
 }

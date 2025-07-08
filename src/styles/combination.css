@@ -1,0 +1,138 @@
+/* combination.css */
+:root {
+  --primary-color: #004080;         /* Deep Blue */
+  --secondary-color: #f0f6ff;       /* Soft Light Blue */
+  --accent-color: #e0e7ff;          /* Accent background */
+  --text-color: #1a1a1a;
+  --subtle-text: #555;
+  --section-padding: 1.5rem;
+  --font-family: 'Inter', 'Helvetica Neue', sans-serif;
+}
+
+.combination-resume {
+  width: 850px;
+  min-height: 1120px;
+  background-color: #fff;
+  overflow: hidden;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
+  font-family: var(--font-family);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.combo-header {
+  background: var(--secondary-color);
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: var(--section-padding);
+  border-bottom: 1px solid #d0d0d0;
+}
+
+.combo-photo {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--primary-color);
+}
+
+.combo-name {
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin: 0;
+}
+
+.combo-role {
+  margin: 0.2rem 0;
+  font-weight: 600;
+  color: var(--subtle-text);
+  font-size: 1.1rem;
+}
+
+.combo-summary {
+  font-size: 0.95rem;
+  color: var(--text-color);
+  max-width: 600px;
+}
+
+/* Layout */
+.combo-main {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+  padding: var(--section-padding);
+}
+
+/* Sidebar */
+.combo-sidebar {
+  background: var(--accent-color);
+  padding: var(--section-padding);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.combo-section-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 0.4rem;
+  border-bottom: 2px solid var(--primary-color);
+  display: inline-block;
+  padding-bottom: 0.3rem;
+}
+
+.combo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.combo-list li {
+  font-size: 0.9rem;
+  padding: 0.3rem 0;
+  color: var(--text-color);
+}
+
+/* Content */
+.combo-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.combo-content section {
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+.combo-item {
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+  color: var(--text-color);
+}
+
+.combo-item strong {
+  color: var(--primary-color);
+}
+
+.combo-content em {
+  color: var(--subtle-text);
+  font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .combo-main {
+    grid-template-columns: 1fr;
+  }
+
+  .combo-sidebar {
+    order: 2;
+  }
+}

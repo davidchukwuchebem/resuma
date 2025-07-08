@@ -85,18 +85,23 @@ export const data = {
 };
 
 const ResumeDataContext = createContext({
-  resumeData: "",
+  resumeData: {},
   setResumeData: () => {},
+  selectedTemplate: "Chronological",
+  setSelectedTemplate: () => {},
 });
 
 export const useResumeDataContext = () => useContext(ResumeDataContext);
 
 export default function ResumeDataProvider({ children }) {
   const [resumeData, setResumeData] = useState(data);
+  const [selectedTemplate, setSelectedTemplate] = useState("Chronological");
 
   return (
-    <ResumeDataContext value={{ resumeData, setResumeData }}>
+    <ResumeDataContext.Provider
+      value={{ resumeData, setResumeData, selectedTemplate, setSelectedTemplate }}
+    >
       {children}
-    </ResumeDataContext>
+    </ResumeDataContext.Provider>
   );
 }
